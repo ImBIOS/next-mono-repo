@@ -1,10 +1,31 @@
 {
-  "name": "root",
+  "name": "next-mono-repo",
+  "version": "1.0.0",
   "private": true,
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "bootstrap": "npm install; lerna bootstrap;",
+    "package:admin": "lerna run --scope admin --stream dev",
+    "package:users": "lerna run --scope users --stream dev",
+    "start": "npx npm-run-all --print-label package:*",
+    "build": "lerna run --parallel build"
+  },
+  "devDependencies": {
+    "@types/node": "^14.18.26",
+    "lerna": "^3.22.1",
+    "typescript": "^3.9.10"
+  },
+  "dependencies": {
+    "@types/next": "^9.0.0",
+    "@types/react": "^16.14.31",
+    "@zeit/next-typescript": "^1.1.1",
+    "next": "^9.5.5",
+    "next-transpile-modules": "^9.0.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
   "workspaces": [
     "packages/*"
-  ],
-  "devDependencies": {
-    "lerna": "^5.4.3"
-  }
+  ]
 }
